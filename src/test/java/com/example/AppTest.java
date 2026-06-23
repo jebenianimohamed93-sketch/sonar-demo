@@ -4,35 +4,38 @@ import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
-/**
- * Unit test for simple App.
- */
-public class AppTest 
-    extends TestCase
-{
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public AppTest( String testName )
-    {
-        super( testName );
+public class AppTest extends TestCase {
+
+    public AppTest(String testName) {
+        super(testName);
     }
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
+    public static Test suite() {
+        return new TestSuite(AppTest.class);
     }
 
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
+    // Tests App methods
+    public void testRun() {
+        App app = new App();
+        try {
+            app.run(); // covers run(), calculateSum(), printMessage()
+            assertTrue(true);
+        } catch (Exception e) {
+            fail("run() threw an exception: " + e.getMessage());
+        }
+    }
+
+    // Tests Calculator divide
+    public void testDivide() {
+        Calculator calc = new Calculator();
+        int result = calc.divide(10, 2);
+        assertEquals(5, result);
+    }
+
+    // Tests divide with negative numbers
+    public void testDivideNegative() {
+        Calculator calc = new Calculator();
+        int result = calc.divide(-10, 2);
+        assertEquals(-5, result);
     }
 }

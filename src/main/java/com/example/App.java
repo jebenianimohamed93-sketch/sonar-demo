@@ -9,7 +9,7 @@ public class App {
 
     public void run() {
         System.out.println("Starting Application...");
-        
+
         int result = calculateSum(10, 20);
         System.out.println("Result: " + result);
 
